@@ -3,7 +3,7 @@
 namespace Training.CodeWars.UnitTests
 {
     [TestFixture]
-    public class KataTests
+    public class GrowKataTests
     {
         [Test]
         public void BasicTests()
