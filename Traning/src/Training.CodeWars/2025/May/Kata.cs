@@ -16,24 +16,26 @@
          */
         public static string PrintArray(object[] array)
         {
-            var list = new List<string>();
+            //var list = new List<string>();
 
-            foreach (var item in array)
-            {
-                if (item is object[] nestedArray)
-                {
-                    foreach (var nestedItem in nestedArray)
-                    {
-                        list.Add(nestedItem.ToString());
-                    }
-                }
-                else
-                {
-                    list.Add(item.ToString());
-                }
-            }
+            //foreach (var item in array)
+            //{
+            //    if (item is object[] nestedArray)
+            //    {
+            //        foreach (var nestedItem in nestedArray)
+            //        {
+            //            list.Add(nestedItem.ToString());
+            //        }
+            //    }
+            //    else
+            //    {
+            //        list.Add(item.ToString());
+            //    }
+            //}
 
-            return string.Join(",", list);
+            //return string.Join(",", list);
+
+            return string.Join(", ", array.Select(x => x.GetType().IsArray ? string.Join(",", (object[])x) : x));
         }
     }
 }
