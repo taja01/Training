@@ -37,5 +37,14 @@
 
             return string.Join(",", array.Select(x => x.GetType().IsArray ? string.Join(",", (object[])x) : x));
         }
+
+        /*
+         Given an array of integers.
+        Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers. 0 is neither positive nor negative.
+        If the input is an empty array or is null, return an empty array.*/
+        public static int[] CountPositivesSumNegatives(int[] input)
+        {
+            return input?.Length > 0 ? [input.Count(x => x > 0), input.Where(x => x < 0).Sum()] : [];
+        }
     }
 }
