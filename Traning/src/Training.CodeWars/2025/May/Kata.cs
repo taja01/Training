@@ -35,7 +35,7 @@
 
             //return string.Join(",", list);
 
-            return string.Join(", ", array.Select(x => x.GetType().IsArray ? string.Join(",", (object[])x) : x));
+            return string.Join(",", array.Select(x => x.GetType().IsArray ? string.Join(",", (object[])x) : x));
         }
     }
 }
