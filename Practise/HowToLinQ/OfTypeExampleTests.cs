@@ -1,5 +1,4 @@
 ﻿using HowToLinQ.Models;
-using NUnit.Framework.Legacy;
 
 namespace HowToLinQ;
 
@@ -12,11 +11,11 @@ public class OfTypeExampleTests : BaseTests
 
         // Example 1: Filter strings
         var strings = mixedList.OfType<string>().ToList();
-        CollectionAssert.AreEqual(new[] { "hello", "world" }, strings);
+        Assert.That(strings, Is.EquivalentTo(new[] { "hello", "world" }));
 
         // Example 2: Filter integers
         var integers = mixedList.OfType<int>().ToList();
-        CollectionAssert.AreEqual(new[] { 1, 3 }, integers);
+        Assert.That(integers, Is.EquivalentTo(new[] { 1, 3 }));
 
         // Example 3: Filter People
         var people = mixedList.OfType<Person>().ToList();

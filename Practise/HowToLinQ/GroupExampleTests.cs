@@ -1,5 +1,4 @@
 ﻿using HowToLinQ.Models;
-using NUnit.Framework.Legacy;
 
 namespace HowToLinQ;
 
@@ -21,14 +20,14 @@ public class GroupExampleTests : BaseTests
         // Example 2: Group numbers by even/odd
         var evenOddGroups = Numbers.GroupBy(n => n % 2 == 0 ? "Even" : "Odd").ToList();
         var evenGroup = evenOddGroups.First(g => g.Key == "Even");
-        CollectionAssert.AreEquivalent(new[] { 2, 4, 6, 8, 10 }, evenGroup.ToList());
+        Assert.That(evenGroup, Is.EquivalentTo(new[] { 2, 4, 6, 8, 10 }));
 
         // Example 3: Group words by first letter
         var wordsByFirstLetter = Words.GroupBy(w => w[0]).ToList();
         var aGroup = wordsByFirstLetter.First(g => g.Key == 'a');
-        CollectionAssert.AreEqual(new[] { "apple" }, aGroup.ToList());
+        Assert.That(aGroup, Is.EquivalentTo(new[] { "apple" }));
         var bGroup = wordsByFirstLetter.First(g => g.Key == 'b');
-        CollectionAssert.AreEqual(new[] { "banana" }, bGroup.ToList());
+        Assert.That(bGroup, Is.EquivalentTo(new[] { "banana" }));
     }
 
 
