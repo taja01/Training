@@ -1,6 +1,4 @@
-﻿using NUnit.Framework.Legacy;
-
-namespace HowToLinQ
+﻿namespace HowToLinQ
 {
     [TestFixture]
     internal class OrderExampleTests : BaseTests
@@ -10,7 +8,7 @@ namespace HowToLinQ
         {
             // Example 1: Order numbers ascending
             var orderedNumbers = Numbers.OrderBy(n => n).ToList(); // Numbers already somewhat ordered, but Distinct makes it clearer
-            CollectionAssert.AreEqual(new[] { 1, 2, 3, 4, 5, 5, 6, 7, 8, 9, 10 }, orderedNumbers);
+            Assert.That(orderedNumbers, Is.EquivalentTo(new[] { 1, 2, 3, 4, 5, 5, 6, 7, 8, 9, 10 }));
 
             // Example 2: Order people by age
             var orderedPeopleByAge = People.OrderBy(p => p.Age).ToList();
@@ -20,7 +18,7 @@ namespace HowToLinQ
 
             // Example 3: Order words by length
             var orderedWordsByLength = Words.OrderBy(w => w.Length).ToList();
-            CollectionAssert.AreEqual(new[] { "date", "apple", "banana", "cherry", "elderberry" }, orderedWordsByLength);
+            Assert.That(orderedWordsByLength, Is.EquivalentTo(new[] { "date", "apple", "banana", "cherry", "elderberry" }));
         }
 
         [Test]
@@ -71,7 +69,7 @@ namespace HowToLinQ
             reversedNumbers.Reverse();
 
             var linqReversedNumbers = Numbers.AsEnumerable().Reverse().ToList();
-            CollectionAssert.AreEqual(new[] { 10, 9, 8, 7, 6, 5, 5, 4, 3, 2, 1 }, linqReversedNumbers);
+            Assert.That(linqReversedNumbers, Is.EquivalentTo(new[] { 10, 9, 8, 7, 6, 5, 5, 4, 3, 2, 1 }));
 
             // Example 2: Reverse people (order as initially defined)
             var reversedPeople = People.AsEnumerable().Reverse().ToList();
@@ -81,7 +79,7 @@ namespace HowToLinQ
             // Example 3: Reverse already ordered words
             var orderedWords = Words.OrderBy(w => w).ToList();
             var reversedOrderedWords = orderedWords.AsEnumerable().Reverse().ToList();
-            CollectionAssert.AreEqual(new[] { "elderberry", "date", "cherry", "banana", "apple" }, reversedOrderedWords);
+            Assert.That(reversedOrderedWords, Is.EquivalentTo(new[] { "elderberry", "date", "cherry", "banana", "apple" }));
         }
     }
 }

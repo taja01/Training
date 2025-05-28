@@ -1,6 +1,4 @@
-﻿using NUnit.Framework.Legacy;
-
-namespace HowToLinQ;
+﻿namespace HowToLinQ;
 
 public class SelectManyExampleTests : BaseTests
 {
@@ -9,7 +7,7 @@ public class SelectManyExampleTests : BaseTests
     {
         // Example 1: Get all pets from all people
         var allPets = People.SelectMany(p => p.Pets).ToList();
-        CollectionAssert.AreEquivalent(new[] { "Dog", "Cat", "Fish", "Dog", "Parrot", "Hamster" }, allPets);
+        Assert.That(allPets, Is.EquivalentTo(new[] { "Dog", "Cat", "Fish", "Dog", "Parrot", "Hamster" }));
 
         // Example 2: Characters from words
         var chars = Words.SelectMany(w => w.ToCharArray()).Distinct().ToList(); // Added Distinct for a cleaner example

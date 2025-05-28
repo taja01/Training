@@ -1,6 +1,4 @@
-﻿using NUnit.Framework.Legacy;
-
-namespace HowToLinQ;
+﻿namespace HowToLinQ;
 
 public class SelectExampleTests : BaseTests
 {
@@ -9,11 +7,11 @@ public class SelectExampleTests : BaseTests
     {
         // Example 1: Get squares of numbers
         var squares = Numbers.Select(n => n * n).ToList();
-        CollectionAssert.AreEqual(new[] { 1, 4, 9, 16, 25, 25, 36, 49, 64, 81, 100 }, squares);
+        Assert.That(squares, Is.EquivalentTo(new[] { 1, 4, 9, 16, 25, 25, 36, 49, 64, 81, 100 }));
 
         // Example 2: Get names of people
         var names = People.Select(p => p.Name).ToList();
-        CollectionAssert.AreEqual(new[] { "Alice", "Bob", "Charlie", "David", "Eve" }, names);
+        Assert.That(names, Is.EquivalentTo(new[] { "Alice", "Bob", "Charlie", "David", "Eve" }));
 
         // Example 3: Create anonymous objects with name and city
         var nameAndCity = People.Select(p => new { p.Name, p.City }).ToList();
