@@ -62,5 +62,26 @@ namespace HowToLinQ
             Assert.That(orderedPeopleByAgeThenNameDesc[3].Name, Is.EqualTo("Charlie"));
             Assert.That(orderedPeopleByAgeThenNameDesc[4].Name, Is.EqualTo("Alice"));
         }
+
+        [Test]
+        public void Reverse_ReversesOrderOfElements()
+        {
+            // Example 1: Reverse numbers
+            var reversedNumbers = Numbers.ToList();
+            reversedNumbers.Reverse();
+
+            var linqReversedNumbers = Numbers.AsEnumerable().Reverse().ToList();
+            CollectionAssert.AreEqual(new[] { 10, 9, 8, 7, 6, 5, 5, 4, 3, 2, 1 }, linqReversedNumbers);
+
+            // Example 2: Reverse people (order as initially defined)
+            var reversedPeople = People.AsEnumerable().Reverse().ToList();
+            Assert.That(reversedPeople.First().Name, Is.EqualTo("Eve"));
+            Assert.That(reversedPeople.Last().Name, Is.EqualTo("Alice"));
+
+            // Example 3: Reverse already ordered words
+            var orderedWords = Words.OrderBy(w => w).ToList();
+            var reversedOrderedWords = orderedWords.AsEnumerable().Reverse().ToList();
+            CollectionAssert.AreEqual(new[] { "elderberry", "date", "cherry", "banana", "apple" }, reversedOrderedWords);
+        }
     }
 }
