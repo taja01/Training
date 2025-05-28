@@ -23,5 +23,44 @@ namespace HowToLinQ
             CollectionAssert.AreEqual(new[] { "date", "apple", "banana", "cherry", "elderberry" }, orderedWordsByLength);
         }
 
+        [Test]
+        public void ThenBy_SecondarySort()
+        {
+            // Example 1: Order people by City, then by Name
+            var orderedPeople = People.OrderBy(p => p.City).ThenBy(p => p.Name).ToList();
+            Assert.That(orderedPeople[0].Name, Is.EqualTo("Bob"));
+            Assert.That(orderedPeople[1].Name, Is.EqualTo("Eve"));
+            Assert.That(orderedPeople[2].Name, Is.EqualTo("Alice"));
+            Assert.That(orderedPeople[3].Name, Is.EqualTo("David"));
+            Assert.That(orderedPeople[4].Name, Is.EqualTo("Charlie"));
+
+            // Example 2: Order people by Age, then by Name
+            var orderedPeopleByAgeThenName = People.OrderBy(p => p.Age).ThenBy(p => p.Name).ToList();
+            Assert.That(orderedPeopleByAgeThenName[0].Name, Is.EqualTo("David"));
+            Assert.That(orderedPeopleByAgeThenName[1].Name, Is.EqualTo("Bob"));
+            Assert.That(orderedPeopleByAgeThenName[2].Name, Is.EqualTo("Eve"));
+            Assert.That(orderedPeopleByAgeThenName[3].Name, Is.EqualTo("Alice"));
+            Assert.That(orderedPeopleByAgeThenName[4].Name, Is.EqualTo("Charlie"));
+        }
+
+        [Test]
+        public void ThenByDescending_SecondarySortDescending()
+        {
+            // Example 1: Order people by City, then by Name Descending
+            var orderedPeople = People.OrderBy(p => p.City).ThenByDescending(p => p.Name).ToList();
+            Assert.That(orderedPeople[0].Name, Is.EqualTo("Eve"));
+            Assert.That(orderedPeople[1].Name, Is.EqualTo("Bob"));
+            Assert.That(orderedPeople[2].Name, Is.EqualTo("David"));
+            Assert.That(orderedPeople[3].Name, Is.EqualTo("Alice"));
+            Assert.That(orderedPeople[4].Name, Is.EqualTo("Charlie"));
+
+            // Example 2: Order people by Age Ascending, then by Name Descending
+            var orderedPeopleByAgeThenNameDesc = People.OrderBy(p => p.Age).ThenByDescending(p => p.Name).ToList();
+            Assert.That(orderedPeopleByAgeThenNameDesc[0].Name, Is.EqualTo("David"));
+            Assert.That(orderedPeopleByAgeThenNameDesc[1].Name, Is.EqualTo("Eve"));
+            Assert.That(orderedPeopleByAgeThenNameDesc[2].Name, Is.EqualTo("Bob"));
+            Assert.That(orderedPeopleByAgeThenNameDesc[3].Name, Is.EqualTo("Charlie"));
+            Assert.That(orderedPeopleByAgeThenNameDesc[4].Name, Is.EqualTo("Alice"));
+        }
     }
 }
