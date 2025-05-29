@@ -1,7 +1,7 @@
 ﻿namespace HowToLinQ
 {
     [TestFixture]
-    internal class OrderExampleTests : BaseTests
+    internal class OrderingExampleTests : BaseTests
     {
         [Test]
         public void OrderBy_SortsElements()
