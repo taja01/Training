@@ -1,5 +1,4 @@
 ﻿using HowToLinQ.Models;
-using NUnit.Framework.Legacy;
 
 namespace HowToLinQ;
 
@@ -10,15 +9,16 @@ public class GenerationExampleTests : BaseTests
     {
         // Example 1: Generate numbers from 1 to 5
         var range1to5 = Enumerable.Range(1, 5).ToList();
-        CollectionAssert.AreEqual(new[] { 1, 2, 3, 4, 5 }, range1to5);
+        Assert.That(range1to5, Is.EquivalentTo(new[] { 1, 2, 3, 4, 5 }));
 
         // Example 2: Generate 3 numbers starting from 10
         var range10for3 = Enumerable.Range(10, 3).ToList();
-        CollectionAssert.AreEqual(new[] { 10, 11, 12 }, range10for3);
+        Assert.That(range10for3, Is.EqualTo(new[] { 10, 11, 12 }));
+
 
         // Example 3: Generate 0 numbers (count is 0)
         var emptyRange = Enumerable.Range(100, 0).ToList();
-        CollectionAssert.IsEmpty(emptyRange);
+        Assert.That(emptyRange, Is.Empty);
     }
 
     [Test]
@@ -26,11 +26,11 @@ public class GenerationExampleTests : BaseTests
     {
         // Example 1: Repeat "hello" 3 times
         var repeatedHello = Enumerable.Repeat("hello", 3).ToList();
-        CollectionAssert.AreEqual(new[] { "hello", "hello", "hello" }, repeatedHello);
+        Assert.That(repeatedHello, Is.EqualTo(new[] { "hello", "hello", "hello" }));
 
         // Example 2: Repeat number 7 five times
         var repeated7 = Enumerable.Repeat(7, 5).ToList();
-        CollectionAssert.AreEqual(new[] { 7, 7, 7, 7, 7 }, repeated7);
+        Assert.That(repeated7, Is.EqualTo(new[] { 7, 7, 7, 7, 7 }));
 
         // Example 3: Repeat an object (same instance)
         var personToRepeat = new Person { Name = "RepeatMe" };
@@ -45,12 +45,12 @@ public class GenerationExampleTests : BaseTests
     {
         // Example 1: Empty sequence of integers
         var emptyInts = Enumerable.Empty<int>().ToList();
-        CollectionAssert.IsEmpty(emptyInts);
+        Assert.That(emptyInts, Is.Empty);
         Assert.That(emptyInts, Has.Count.EqualTo(0));
 
         // Example 2: Empty sequence of strings
         var emptyStrings = Enumerable.Empty<string>().ToList();
-        CollectionAssert.IsEmpty(emptyStrings);
+        Assert.That(emptyStrings, Is.Empty);
 
         // Example 3: Use in methods expecting IEnumerable<T>
         var result = People.Concat(Enumerable.Empty<Person>()).ToList();
