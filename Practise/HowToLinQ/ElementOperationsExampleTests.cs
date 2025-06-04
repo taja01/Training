@@ -94,7 +94,7 @@ public class ElementOperationsExampleTests : BaseTests
 
         // Example 2: Single person with age 22
         var personAge22 = People.SingleOrDefault(p => p.Age == 22);
-        Assert.That(personAge22.Name, Is.EqualTo("David"));
+        Assert.That(personAge22?.Name, Is.EqualTo("David"));
 
         // Example 3: Returns default if no element
         Assert.That(Numbers.SingleOrDefault(n => n == 100), Is.EqualTo(0)); // None
