@@ -95,7 +95,7 @@ public class ConversionExampleTests : BaseTests
     {
         // Example 1: Treat List as IEnumerable (often implicit, but can be explicit)
         IEnumerable<int> numEnumerable = Numbers.AsEnumerable();
-        Assert.That(numEnumerable, Has.Count.EqualTo(11));
+        Assert.That(numEnumerable, Has.Exactly(11).Items);
 
         // Example 2: Useful for choosing between extension methods if ambiguous
         // (e.g., if a custom collection implemented its own 'Where' differently)
