@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceCondition", "ThreadSafe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreventRaceCondition", "PreventRaceCondition\PreventRaceCondition.csproj", "{C655219B-4B01-4249-A6ED-27DC6228F539}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskExample", "TaskExample\TaskExample.csproj", "{2FCD398F-DE07-47F7-BAE7-20909B58A85A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{C655219B-4B01-4249-A6ED-27DC6228F539}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C655219B-4B01-4249-A6ED-27DC6228F539}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C655219B-4B01-4249-A6ED-27DC6228F539}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FCD398F-DE07-47F7-BAE7-20909B58A85A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FCD398F-DE07-47F7-BAE7-20909B58A85A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FCD398F-DE07-47F7-BAE7-20909B58A85A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FCD398F-DE07-47F7-BAE7-20909B58A85A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +55,7 @@ Global
 		{5834C1B1-23D3-4B8F-936B-ECDB3DD04B68} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{D0000A26-03DB-487B-BDB2-D40AC0757DC5} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{C655219B-4B01-4249-A6ED-27DC6228F539} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{2FCD398F-DE07-47F7-BAE7-20909B58A85A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DDA2678C-14B7-4AA5-BB8C-6DD48501A0DB}
