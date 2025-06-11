@@ -1,8 +1,9 @@
-﻿namespace ThreadSafety
+﻿namespace PreventRaceCondition
 {
     internal class Program
     {
         private static int Counter = 0;
+        private static object LockObject = new object();
 
         static void Main(string[] args)
         {
@@ -20,11 +21,12 @@
 
         static void Increment()
         {
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 10000; i++)
             {
-                int temp = Counter; // Read Counter
-                Thread.Sleep(1);    // Simulate work and increase overlap
-                Counter = temp + 1; // Write Counter
+                lock (LockObject) // Use the lock to synchronize threads
+                {
+                    Counter++;
+                }
             }
         }
     }
